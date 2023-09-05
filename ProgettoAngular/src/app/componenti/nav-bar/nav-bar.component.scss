@@ -1,0 +1,35 @@
+
+mat-toolbar{
+    padding: 10px;
+    margin: 0px;
+    background-color: #D9D9D9;
+}
+
+
+//SEZIONE FONT
+.fontLogoCentrale{
+    color: var(--Dark, #000);
+    font-family: AmstelvarAlpha;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+}
+
+.bottoniFont{
+    color: var(--Dark, #000);
+    font-family: AmstelvarAlpha;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+//SEZIONE ALIGN
+.primaRiga{
+    justify-content: space-between;
+}
+.secondaRiga{
+    justify-content: space-between;
+}

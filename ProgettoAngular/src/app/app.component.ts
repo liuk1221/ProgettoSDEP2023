@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap'; //Import di bootstrap
 
 @Component({
   selector: 'app-root',
@@ -11,6 +11,7 @@ export class AppComponent {
   constructor(private modalService: NgbModal) {
   }
 
+  //Metodo Open per bootstrap
   public open(modal: any): void {
     this.modalService.open(modal);
   }
