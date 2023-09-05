@@ -23,19 +23,17 @@
              </div>
     
         </mat-toolbar-row>
-        
+        <mat-toolbar-row class="custom-toolbar-row"></mat-toolbar-row>
         <mat-toolbar-row class="secondaRiga">
-            <div style="width: 25%;">
-
-            </div>
+            <div style="width: 25%;"></div>
             <div>
-                <button mat-button class="bottoniFont">HOME</button>
-                <button mat-button class="bottoniFont">SHOP</button>
-                <button mat-button class="bottoniFont">ABOUT</button>
-                <button mat-button class="bottoniFont">FAQ</button>
+                <button mat-button class="bottoniFont" routerLink="/">HOME</button>
+                <button mat-button class="bottoniFont" routerLink="shop">SHOP</button>
+                <button mat-button class="bottoniFont" routerLink="about">ABOUT</button>
+                <button mat-button class="bottoniFont" routerLink="faq">FAQ</button>
             </div>
             <div  style="width: 25%; text-align: right;">
-                <button mat-icon-button class="bottoniFont"><mat-icon>shopping_cart</mat-icon>
+                <button mat-icon-button class="bottoniFont" routerLink="cart"><mat-icon>shopping_cart</mat-icon>
                 </button>
             </div>
         </mat-toolbar-row>

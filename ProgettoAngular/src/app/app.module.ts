@@ -11,12 +11,25 @@ import { NavBarComponent } from './componenti/nav-bar/nav-bar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { HomeComponent } from './componenti/home/home.component';
+import { ShopComponent } from './componenti/shop/shop.component';
+import { AboutComponent } from './componenti/about/about.component';
+import { FaqComponent } from './componenti/faq/faq.component';
+import { CartComponent } from './componenti/cart/cart.component';
+import { NotFoundComponent } from './componenti/not-found/not-found.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent
+    NavBarComponent,
+    HomeComponent,
+    ShopComponent,
+    AboutComponent,
+    FaqComponent,
+    CartComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ mat-toolbar{
     padding: 10px;
     margin: 0px;
     background-color: #D9D9D9;
+    border: 1px solid #000000;
 }
 
 
@@ -29,7 +30,16 @@ mat-toolbar{
 //SEZIONE ALIGN
 .primaRiga{
     justify-content: space-between;
+    border: 1px solid #000000;
 }
 .secondaRiga{
     justify-content: space-between;
+    border: 1px solid #000000;
 }
+
+//RIGA CENTRALE
+.custom-toolbar-row {
+    background-color: hsl(0, 0%, 0%); /* Cambia il colore di sfondo */
+    color: #fff;
+    height: 1px;
+  }
