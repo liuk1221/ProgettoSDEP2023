@@ -71,9 +71,11 @@ h3{
 
 .divTer{
     display: flex;
+    flex-direction: column;
     width: 100%;
     background-image: url('https://github.com/liuk1221/ProgettoSDEP2023/blob/main/Asset/HomePageImages/istockphoto-1448910543-612x612.jpg?raw=true');
     background-attachment: fixed;
     background-size: cover;
-    height: 50vh;
+    height: 100vh;
+    padding: 80px;
 }

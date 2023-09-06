@@ -1,7 +1,3 @@
-<!-- <div class="sfondoMarmo">
-    <p>home works!</p>
-</div> -->
-
 <div class="divPri">
     <div class="divPriContent">
         <h2>ESPLORA CATALOGO</h2>
@@ -18,5 +14,31 @@
 
 </div>
 <div class="divTer">
+    <div id="titoloDivTer">
+        <p style="text-align: center; "><button mat-button><h2>Iscriviti alla nostra newsletter</h2></button></p>
+    </div>
 
+    <!-- IDEA SU UN MENU PER FAR VEDERE UNA SELEZIONE DI PRODOTTI- PER IL MOMENTO DEPRECATA -->
+    <!-- <div id="menuCards" style="margin: 10px;">
+        <mat-button-toggle-group name="categorieProdotti" aria-label="CatMarmi">
+            <mat-button-toggle value="all">Tutti i prodotti</mat-button-toggle>
+            <mat-button-toggle value="natural">Naturali</mat-button-toggle>
+            <mat-button-toggle value="syntetic">Sintetici</mat-button-toggle>
+            <mat-button-toggle value="gold">Inserti Oro</mat-button-toggle>
+          </mat-button-toggle-group>
+    </div> -->
+
+    <!-- Il bottone di refresh sarà utile a ricaricare le cards con dei prodotti casuali -->
+    <div id="refresh">
+        <button mat-icon-button color="primary" aria-label="icon with refresh button">
+            <mat-icon>refresh</mat-icon>
+          </button>
+    </div>
+
+    <div id="cardsSlot" style="display: flex; flex-direction: row; padding: 10px;">
+        <app-shopping-card></app-shopping-card>
+        <app-shopping-card></app-shopping-card>
+        <app-shopping-card></app-shopping-card>
+        <app-shopping-card></app-shopping-card>
+    </div>
 </div>

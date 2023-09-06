@@ -17,6 +17,9 @@ import { AboutComponent } from './componenti/about/about.component';
 import { FaqComponent } from './componenti/faq/faq.component';
 import { CartComponent } from './componenti/cart/cart.component';
 import { NotFoundComponent } from './componenti/not-found/not-found.component';
+import { ShoppingCardComponent } from './componenti/shopping-card/shopping-card.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -29,7 +32,8 @@ import { NotFoundComponent } from './componenti/not-found/not-found.component';
     AboutComponent,
     FaqComponent,
     CartComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ShoppingCardComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,9 @@ import { NotFoundComponent } from './componenti/not-found/not-found.component';
     NgbModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonToggleModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
