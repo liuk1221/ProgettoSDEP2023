@@ -1,0 +1,79 @@
+// .sfondoMarmo{
+//     background-image: url('https://github.com/liuk1221/ProgettoSDEP2023/blob/main/Asset/HomePageImages/marmo-arabescato-copertina.jpg?raw=true');
+//     background-size: cover;
+//     background-repeat: no-repeat;
+// }
+
+
+//Sezione applicata a tutti gli elementi della Home
+*{
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+
+//Font del testo della prima sezione
+h2{
+    font-family: Roboto;
+    font-size: 74px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 55px; /* 74.324% */
+    text-transform: capitalize;
+}
+
+h3{
+    color: var(--Dark, #000);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Roboto;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 55px; /* 183.333% */
+}
+
+
+.divPri{
+    display: flex;
+    flex-direction: column;
+    padding-top: 300px;
+    width: 100%;
+    background-image: url('https://github.com/liuk1221/ProgettoSDEP2023/blob/main/Asset/HomePageImages/istockphoto-1448910543-612x612.jpg?raw=true');
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+    padding-left: 10vh;
+}
+.divPriContent{
+    margin: 30px;
+}
+.buyNow{
+    background-color: #000;
+    color: #c2c2c2;
+    font-family: Roboto;
+    font-size: 29px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    padding: 35px;
+}
+
+.divSec{
+    display: flex;
+    width: 100%;
+    background-color: #c2c2c2;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    height: 100vh;
+}
+
+.divTer{
+    display: flex;
+    width: 100%;
+    background-image: url('https://github.com/liuk1221/ProgettoSDEP2023/blob/main/Asset/HomePageImages/istockphoto-1448910543-612x612.jpg?raw=true');
+    background-attachment: fixed;
+    background-size: cover;
+    height: 50vh;
+}

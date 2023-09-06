@@ -4,6 +4,10 @@ mat-toolbar{
     margin: 0px;
     background-color: #D9D9D9;
     border: 1px solid #000000;
+    position: fixed;                    //MANTIENE LA BARRA DI NAVIGAZIONE SEMPRE ALLO STESSO POSTO
+    top: 0%;
+    width: 100%;
+    z-index: 1000;                      //MANTIENE LA BARRA DI NAVIGAZIONE SEMPRE SOPRA A TUTTO IL RESTO
 }
 
 
@@ -43,3 +47,5 @@ mat-toolbar{
     color: #fff;
     height: 1px;
   }
+
+
