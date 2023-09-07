@@ -1,15 +1,19 @@
 <mat-card class="example-card">
-    
-    <img mat-card-image src="../../../assets/HomePageImages/MarmoBiancoStatuario.jpg" alt="Photo of marmo bianco">
+<div style="display: flex; flex-direction: row; padding: 5px;">
+  <div class="mat-card" *ngFor="let marmo of MARMI">
+    <img mat-card-image src="../../../assets/HomePageImages/{{marmo.filename}}" alt="Photo of marmo bianco">
+    <mat-card-title>
+      {{marmo.title}}
+    </mat-card-title>
     <mat-card-content>
       <p>
-        Il marmo Statuario di Carrara è una pietra naturale pregiata apprezzata per la sua eleganza, 
-        il colore bianco puro e le venature uniche. È una scelta popolare per progetti di design 
-        e architettura di alta qualità in tutto il mondo.
+        {{marmo.descrizione}}
       </p>
     </mat-card-content>
     <mat-card-actions>
       <button mat-button>BUY</button>
       <button mat-button>ADD</button>
     </mat-card-actions>
-  </mat-card>
+  </div>
+</div>
+</mat-card>

@@ -8,9 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './componenti/nav-bar/nav-bar.component';
 
 //Imports di angular material
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { HomeComponent } from './componenti/home/home.component';
 import { ShopComponent } from './componenti/shop/shop.component';
 import { AboutComponent } from './componenti/about/about.component';
@@ -18,8 +18,9 @@ import { FaqComponent } from './componenti/faq/faq.component';
 import { CartComponent } from './componenti/cart/cart.component';
 import { NotFoundComponent } from './componenti/not-found/not-found.component';
 import { ShoppingCardComponent } from './componenti/shopping-card/shopping-card.component';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {MatCardModule} from '@angular/material/card';
+import { FooterComponent } from './componenti/footer/footer.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -33,7 +34,8 @@ import {MatCardModule} from '@angular/material/card';
     FaqComponent,
     CartComponent,
     NotFoundComponent,
-    ShoppingCardComponent
+    ShoppingCardComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

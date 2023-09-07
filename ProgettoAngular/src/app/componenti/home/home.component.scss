@@ -1,4 +1,4 @@
-// .sfondoMarmo{
+// .sfondoGenericoMarmo{
 //     background-image: url('https://github.com/liuk1221/ProgettoSDEP2023/blob/main/Asset/HomePageImages/marmo-arabescato-copertina.jpg?raw=true');
 //     background-size: cover;
 //     background-repeat: no-repeat;
@@ -39,7 +39,7 @@ h3{
     flex-direction: column;
     padding-top: 300px;
     width: 100%;
-    background-image: url('../../../assets/HomePageImages/MarmoBiancoHomePage.jpg'); //Percorso relativo
+    background-image: url('../../../assets/HomePageImages/GenericoMarmoBiancoHomePage.jpg'); //Percorso relativo
     background-attachment: fixed;
     background-size: cover;
     height: 100vh;
@@ -73,7 +73,7 @@ h3{
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-image: url('../../../assets/HomePageImages/MarmoBiancoHomePage.jpg'); //Percorso relativo
+    background-image: url('../../../assets/HomePageImages/GenericoMarmoBiancoHomePage.jpg'); //Percorso relativo
     background-attachment: fixed;
     background-size: cover;
     height: 100vh;
