@@ -21,6 +21,9 @@ import { ShoppingCardComponent } from './componenti/shopping-card/shopping-card.
 import { FooterComponent } from './componenti/footer/footer.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from "@angular/material/grid-list";
+import { ShopGridListComponent } from './componenti/shop/shop-grid-list/shop-grid-list.component';
+import { ShopProductCardComponent } from './componenti/shop/shop-product-card/shop-product-card.component';
 
 
 
@@ -35,7 +38,9 @@ import { MatCardModule } from '@angular/material/card';
     CartComponent,
     NotFoundComponent,
     ShoppingCardComponent,
-    FooterComponent
+    FooterComponent,
+    ShopGridListComponent,
+    ShopProductCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,8 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule,
     MatIconModule,
     MatButtonToggleModule,
-    MatCardModule
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

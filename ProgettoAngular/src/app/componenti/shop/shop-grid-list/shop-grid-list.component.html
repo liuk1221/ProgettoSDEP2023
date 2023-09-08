@@ -1,0 +1,28 @@
+<mat-grid-list 
+    cols="4" 
+    rows="5">
+    <mat-grid-tile
+        *ngFor="let tile of list_of_products()"
+        [colspan]="1"
+        [rowspan]="1"
+        [style.background]="one_color()">
+      <body 
+        class="product-body">
+        <h1 
+          class="product-title">{{tile+1}}</h1>
+        <p 
+          class="product-text">
+            Singola item cella per prodotto,
+            ampliabile con: 
+            immagine, header, footer, 
+            pricetag e bottoni (forse animazione hover mouse)
+        </p>
+        <!-- 
+          product card
+          header e footer
+          bottoni
+        -->
+      </body>
+    </mat-grid-tile>
+  </mat-grid-list>
+  
