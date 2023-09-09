@@ -16,17 +16,20 @@ import { AboutComponent } from './componenti/about/about.component';
 import { FaqComponent } from './componenti/faq/faq.component';
 import { CartComponent } from './componenti/cart/cart.component';
 import { NotFoundComponent } from './componenti/not-found/not-found.component';
+import { ShopGridListComponent } from './componenti/shop/shop-grid-list/shop-grid-list.component';
+import { ShopProductCardComponent } from './componenti/shop/shop-product-card/shop-product-card.component';
 import { ShoppingCardComponent } from './componenti/shopping-card/shopping-card.component';
 
 //Imports di angular material
+import { HttpClientModule } from "@angular/common/http";
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from "@angular/material/grid-list";
-import { ShopGridListComponent } from './componenti/shop/shop-grid-list/shop-grid-list.component';
-import { ShopProductCardComponent } from './componenti/shop/shop-product-card/shop-product-card.component';
+import { AngularSvgIconModule } from "angular-svg-icon";
+
 
 
 
@@ -43,9 +46,10 @@ import { ShopProductCardComponent } from './componenti/shop/shop-product-card/sh
     ShoppingCardComponent,
     FooterComponent,
     ShopGridListComponent,
-    ShopProductCardComponent,
+    ShopProductCardComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -55,7 +59,8 @@ import { ShopProductCardComponent } from './componenti/shop/shop-product-card/sh
     MatIconModule,
     MatButtonToggleModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    AngularSvgIconModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

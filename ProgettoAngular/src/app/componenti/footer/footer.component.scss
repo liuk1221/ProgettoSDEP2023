@@ -1,0 +1,52 @@
+div {
+    padding-top: 50px;
+    text-align: left;
+    background: #d9d9d9;
+}
+
+b {
+    color:black;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(50, 50, 50);
+}
+
+svg {
+    height: 30px;
+    width: 30px;
+}
+
+.fontLogoCentrale {
+    font-family: AmstelvarAlpha;
+    font-size: larger;
+    font-style: normal;
+    color: black;
+}
+
+.rugi-text {
+    background-color: #d9d9d9;
+    font-size: small;
+    text-align: left;
+    line-break: loose;
+    line-height: 25px;
+}
+
+.bottom-links-options {
+    line-height: 35px;
+}
+
+.bottom-bar-text {
+    padding-bottom: 10px;
+    text-align: center;
+    color: whitesmoke;
+    background-color: rgb(19, 19, 19);
+}
+
+.icons > .svg {
+    align-content: center;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
