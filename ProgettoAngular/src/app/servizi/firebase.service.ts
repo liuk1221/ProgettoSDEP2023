@@ -117,7 +117,7 @@ export class FirebaseService {
 
     let name_desc = this.rand(this.nome_array.length)
     db_data_dummy['nome'] = this.nome_array[name_desc]
-    db_data_dummy['descrizione'] = this.prov_array[name_desc]
+    db_data_dummy['descrizione'] = this.desc_array[name_desc]
     db_data_dummy['provenienza'] = this.prov_array[this.rand(this.prov_array.length)]
     db_data_dummy['colore'] = this.color_array[this.rand(this.color_array.length)]
     db_data_dummy['venature'] = this.rand(2) == 0 ? true : false
