@@ -19,6 +19,8 @@ import { NotFoundComponent } from './componenti/not-found/not-found.component';
 import { ShopGridListComponent } from './componenti/shop/shop-grid-list/shop-grid-list.component';
 import { ShopProductCardComponent } from './componenti/shop/shop-product-card/shop-product-card.component';
 import { ShoppingCardComponent } from './componenti/shopping-card/shopping-card.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MarbleFormComponent } from './componenti/marble-form/marble-form.component';
 
 //Imports di angular material
 import { HttpClientModule } from "@angular/common/http";
@@ -60,7 +62,8 @@ import { AngularSvgIconModule } from "angular-svg-icon";
     MatButtonToggleModule,
     MatCardModule,
     MatGridListModule,
-    AngularSvgIconModule.forRoot()
+    AngularSvgIconModule.forRoot(),
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
