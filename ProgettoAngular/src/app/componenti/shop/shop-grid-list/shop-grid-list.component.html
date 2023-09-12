@@ -11,14 +11,20 @@
         </h1>
         <body>
           <div *ngFor="let item of tile | keyvalue">
-            {{item.key}}
-            {{item.value}}
+            <!-- 
+              product card
+              header e footer
+              bottoni
+            -->
+            <mat-card
+              class="marble-card">
+                <mat-card-header>
+                  <mat-card-title>
+
+                  </mat-card-title>
+                </mat-card-header>
+            </mat-card>
           </div>
-          <!-- 
-            product card
-            header e footer
-            bottoni
-          -->
         </body>
       </div>
     </mat-grid-tile>

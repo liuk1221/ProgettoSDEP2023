@@ -1,21 +1,14 @@
-<<<<<<< HEAD
-import { Component } from '@angular/core';
-=======
 import { Component, OnInit } from '@angular/core';
 import { ForumDataDB } from "../../servizi/forum-data-db";
 import { FirebaseService } from 'src/app/servizi/firebase.service';
 
 
->>>>>>> a7a3d944713873c504afd258cff818acc5b67152
 @Component({
   selector: 'app-shopping-card',
   templateUrl: './shopping-card.component.html',
   styleUrls: ['./shopping-card.component.scss'],
 })
 export class ShoppingCardComponent implements OnInit{
-
-<<<<<<< HEAD
-=======
 
   public rows : number = 4;
   public prodotti : ForumDataDB[];
@@ -29,7 +22,8 @@ export class ShoppingCardComponent implements OnInit{
     dim_y: 0,
     dim_z: 0,
     qta: 0,
-    prezzo: 0
+    prezzo: 0,
+    descrizione: ''
   };
   public pick : number[] = [0,0,0,0];
   private ids : any[] = [];
@@ -77,5 +71,4 @@ export class ShoppingCardComponent implements OnInit{
     }
   }
 
->>>>>>> a7a3d944713873c504afd258cff818acc5b67152
 }
