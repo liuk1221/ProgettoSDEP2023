@@ -1,0 +1,101 @@
+<mat-form-field>
+    <mat-label>Nome</mat-label>
+    <input matInput>
+    <mat-label>Provenienza</mat-label>
+    <input matInput>
+    <mat-label>Colore</mat-label>
+    <input matInput>
+  </mat-form-field>
+  <mat-form-field>
+    <div>
+        <label>Venature?: </label>
+        <mat-radio-group>
+          <mat-radio-button value="Sì">Auto</mat-radio-button>
+          <mat-radio-button value="No">Always</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Colore Venature</mat-label>
+    <input matInput>
+    <mat-label>Colore Venature</mat-label>
+    <input matInput>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-form-field floatLabel="always">
+        <mat-label>Dimensione X</mat-label>
+        <input 
+            matInput
+            maxlength="5"
+            type="number"
+            class="parte-intera-X"
+            placeholder="0">
+        <span matTextSuffix>.</span>
+        <input 
+            matInput 
+            maxlength="2" 
+            type="number" 
+            class="parte-fraz-X" 
+            placeholder="0">
+            <mat-label>Dimensione Y</mat-label>
+        <input 
+            matInput
+            maxlength="5"
+            type="number"
+            class="parte-intera-Y"
+            placeholder="0">
+        <span matTextSuffix>.</span>
+        <input 
+            matInput 
+            maxlength="2" 
+            type="number" 
+            class="parte-fraz-Y" 
+            placeholder="0">
+            <mat-label>Dimensione Z</mat-label>
+        <input 
+            matInput
+            maxlength="5"
+            type="number"
+            class="parte-intera-Z"
+            placeholder="0">
+        <span matTextSuffix>.&nbsp;</span>
+        <input 
+            matInput 
+            maxlength="2" 
+            type="number" 
+            class="parte-fraz-Z" 
+            placeholder="0">
+      </mat-form-field>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Quantità</mat-label>
+        <input 
+            matInput
+            maxlength="10"
+            type="number"
+            class="qta"
+            placeholder="0">
+        <span matTextPrefix>g&nbsp;</span>
+        <input 
+            matInput 
+            maxlength="2" 
+            type="number" 
+            class="quantita" 
+            placeholder="0">
+            <mat-label>Prezzo</mat-label>
+        <input 
+            matInput
+            maxlength="10"
+            type="number"
+            class="parte-intera-prezzo"
+            placeholder="0">
+        <span matTextPrefix>$&nbsp;</span>
+        <span matTextSuffix>.&nbsp;</span>
+        <input 
+            matInput 
+            maxlength="2" 
+            type="number" 
+            class="parte-fraz-prezzo"
+            placeholder="0">
+  </mat-form-field>
+  

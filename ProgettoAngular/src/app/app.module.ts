@@ -19,6 +19,7 @@ import { NotFoundComponent } from './componenti/not-found/not-found.component';
 import { ShopGridListComponent } from './componenti/shop/shop-grid-list/shop-grid-list.component';
 import { ShopProductCardComponent } from './componenti/shop/shop-product-card/shop-product-card.component';
 import { ShoppingCardComponent } from './componenti/shopping-card/shopping-card.component';
+import { MarbleFormComponent } from './componenti/marble-form/marble-form.component';
 
 //Imports di angular material
 import { HttpClientModule } from "@angular/common/http";
@@ -77,9 +78,13 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     MatGridListModule,
     AngularSvgIconModule.forRoot(),
+<<<<<<< HEAD
+    MatFormFieldModule
+=======
     AngularFireModule.initializeApp(environment.firebase),
     MatFormFieldModule,
     FormsModule
+>>>>>>> 256df073d2b1d75fe5beb0d70e7809b0ccd532d1
   ],
   providers: [],
   bootstrap: [AppComponent]
