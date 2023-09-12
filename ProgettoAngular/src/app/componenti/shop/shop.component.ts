@@ -105,41 +105,7 @@ export class ShopComponent implements OnInit {
     // You can use a service to manage the shopping cart
   }
 
-  // popolazione di db di test
-  private rand(range: number){
-    return Math.floor(Math.random() * range)
-  }
 
-  four_random_cards() {
-    this.firebase.retrieveMarble(
-      ).subscribe((data: any) => {
-        console.log(data)
-        this.prodotti = Object.keys(data).map(key => { 
-        this.ids.push(key)
-        data[key]['id'] = key
-        return data[key] 
-      })
-    });
-    let i = 0;
-    if (this.prodotti.length > 4) {      
-      while (i < 4 && this.pick[3] == 0) {
-        this.pick[i] = this.rand(this.prodotti.length)
-        for (let index = i; index > 0; index--) {
-          if (this.pick[i] == this.pick[index]) {
-            this.pick[i] = this.rand(this.prodotti.length)
-          } else {
-            break;
-          }
-        }
-        i++;
-      }
-    } else {
-      this.pick[0] = this.rand(this.prodotti.length);
-      this.pick[1] = this.rand(this.prodotti.length);
-      this.pick[2] = this.rand(this.prodotti.length);
-      this.pick[3] = this.rand(this.prodotti.length);
-    }
-  }
 
   quick_pop(){
     this.firebase.dummyIMarble(
