@@ -22,7 +22,8 @@ export class ShopComponent implements OnInit {
     dim_y: 0,
     dim_z: 0,
     qta: 0,
-    prezzo: 0
+    prezzo: 0,
+    descrizione: ''
   };
   public pick : number[] = [0,0,0,0];
   private ids : any[] = [];
@@ -104,6 +105,7 @@ export class ShopComponent implements OnInit {
     // You can use a service to manage the shopping cart
   }
 
+  // popolazione di db di test
   private rand(range: number){
     return Math.floor(Math.random() * range)
   }
@@ -137,5 +139,12 @@ export class ShopComponent implements OnInit {
       this.pick[2] = this.rand(this.prodotti.length);
       this.pick[3] = this.rand(this.prodotti.length);
     }
+  }
+
+  quick_pop(){
+    this.firebase.dummyIMarble(
+    ).subscribe(data => {
+      console.log(data)
+    })
   }
 }
