@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, importProvidersFrom } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ForumDataDB } from "./forum-data-db";
+import { NONE_TYPE } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -15,22 +16,23 @@ export class FirebaseService {
   // '/<nome scheda presente nel db>'.json
 
   static path_to_DB = 'https://progettosdep2023-default-rtdb.europe-west1.firebasedatabase.app/';
-  static id_list : number[];
+  static id_list : number[] = [];
 
   constructor(private http: HttpClient) {} //In questo modo possiamo utilizzare il modulo http tramite la variabile.
 
   private autolocate(uri: string) {
-    return `${FirebaseService.path_to_DB}/${uri}.json`
+    return `${FirebaseService.path_to_DB}${uri}.json`
   }
 
+  // Inserimento di test
+  
   // Inserimento
-  insertMarble(body:  ForumDataDB) {
-    // il body sara' del tipo: {'marmo' : {}, 'lastra': {}, 'quota' : {}} 
+  insertMarble(body: ForumDataDB) {
     // return this.http.post(url, body);
-    FirebaseService.id_list.push(body['id'])
+    // FirebaseService.id_list.push(body['id'])
     return this.http.post(this.autolocate("marmi"), body)
   }
-
+  
   // Get
   // per get specifici: url_DB/id_schema.json <---
   retrieveMarble(){
@@ -39,25 +41,18 @@ export class FirebaseService {
     return this.http.get(this.autolocate("marmi"))
   }
 
-  // Rimozione
-  // deleteMarble(id: number){
-  //   if (id in FirebaseService.id_list) {
-  //     FirebaseService.id_list.splice(FirebaseService.id_list.indexOf(id))
-  //     return this.http.delete(`${this.autolocate("marmi")}/-${id}.json`)
-  //   } else {
-  //     console.error("Invalid ID")
-  //     return
-  //   }
-  // }
+  // Rimozione singola
+  deleteMarble(id: number){
+    return this.http.delete(`${this.autolocate("marmi")}/-${id}.json`)
+  }
+
+  // Rimozione totale
+  deleteAllMarble(){}
 
   // Modifica
-  // updateMarble(id: number, body: ForumDataDB){
-  //   // return this.http.patch(`${url}/-${id}.json`, body)
-  //   if (!(id in FirebaseService.id_list)) {
-  //     console.error("Invalid ID")
-  //     return
-  //   }
-  //   return this.http.patch(`${this.autolocate("marmi")}/-${id}.json`, body)
-  // }
+  updateMarble(id: number, body: ForumDataDB){
+    // return this.http.patch(`${url}/-${id}.json`, body)
+    return this.http.patch(`${this.autolocate("marmi")}/-${id}.json`, body)
+  }
 
 }

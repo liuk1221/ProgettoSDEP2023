@@ -1,5 +1,4 @@
 export interface ForumDataDB {
-    id: number,
     nome: string,
     provenienza: string,
     colore: string,

@@ -1,20 +1,25 @@
 <mat-form-field>
     <mat-label>Nome</mat-label>
-    <input matInput>
-    <mat-label>Provenienza</mat-label>
-    <input matInput>
-    <mat-label>Colore</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <mat-form-field>
-    <div>
+    <input matInput placeholder="Nome">
+</mat-form-field>
+<mat-form-field>
+        <mat-label>Provenienza</mat-label>
+        <input matInput placeholder="Provenienza">
+</mat-form-field>
+<mat-form-field>
+        <mat-label>Colore</mat-label>
+        <input matInput placeholder="Colore">
+        <span matTextPrefix>#&nbsp;</span>
+</mat-form-field>
+<div>
+        <mat-form-field>
         <label>Venature?: </label>
         <mat-radio-group>
-          <mat-radio-button value="Sì">Auto</mat-radio-button>
-          <mat-radio-button value="No">Always</mat-radio-button>
+          <mat-radio-button>Sì</mat-radio-button>
+          <mat-radio-button>No</mat-radio-button>
         </mat-radio-group>
-      </div>
-  </mat-form-field>
+    </mat-form-field>
+</div>
   <mat-form-field>
     <mat-label>Colore Venature</mat-label>
     <input matInput>

@@ -19,7 +19,7 @@ import { NotFoundComponent } from './componenti/not-found/not-found.component';
 import { ShopGridListComponent } from './componenti/shop/shop-grid-list/shop-grid-list.component';
 import { ShopProductCardComponent } from './componenti/shop/shop-product-card/shop-product-card.component';
 import { ShoppingCardComponent } from './componenti/shopping-card/shopping-card.component';
-import { MarbleFormComponent } from './componenti/marble-form/marble-form.component';
+import { MarbleFormComponent } from './componenti/shop/marble-form/marble-form.component';
 
 //Imports di angular material
 import { HttpClientModule } from "@angular/common/http";
@@ -30,7 +30,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from "@angular/material/grid-list";
 import { AngularSvgIconModule } from "angular-svg-icon";
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
 
 //Imports di angular fire
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -49,40 +49,43 @@ import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavBarComponent,
-    HomeComponent,
-    ShopComponent,
-    AboutComponent,
-    FaqComponent,
-    CartComponent,
-    NotFoundComponent,
-    ShoppingCardComponent,
-    FooterComponent,
-    ShopGridListComponent,
-    ShopProductCardComponent,
-    LoginComponent,
-    RegisterComponent
-  ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    NgbModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatButtonToggleModule,
-    MatCardModule,
-    MatGridListModule,
-    AngularSvgIconModule.forRoot(),
-    AngularFireModule.initializeApp(environment.firebase),
-    MatFormFieldModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavBarComponent,
+        HomeComponent,
+        ShopComponent,
+        AboutComponent,
+        FaqComponent,
+        CartComponent,
+        NotFoundComponent,
+        ShoppingCardComponent,
+        FooterComponent,
+        ShopGridListComponent,
+        ShopProductCardComponent,
+        LoginComponent,
+        RegisterComponent
+    ],
+    providers: [
+      {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+    ],
+    bootstrap: [AppComponent],
+    imports: [
+        HttpClientModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        NgbModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatIconModule,
+        MatButtonToggleModule,
+        MatCardModule,
+        MatGridListModule,
+        AngularSvgIconModule.forRoot(),
+        AngularFireModule.initializeApp(environment.firebase),
+        MatFormFieldModule,
+        FormsModule,
+        MarbleFormComponent
+    ]
 })
 export class AppModule { }
