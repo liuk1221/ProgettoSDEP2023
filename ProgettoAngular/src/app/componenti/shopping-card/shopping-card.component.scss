@@ -1,4 +1,11 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Cambia questa riga per allineare i componenti a sinistra */
+}
+
 .example-card {
-  max-width: 42vh;
-  margin: 20px;
+  width: calc(25% - 16px); /* Imposta la larghezza desiderata per ciascun componente */
+  margin-right: 16px; /* Aggiungi margine destro per spaziatura tra i componenti */
+  margin-bottom: 16px; /* Aggiungi margine inferiore per spaziatura */
 }
