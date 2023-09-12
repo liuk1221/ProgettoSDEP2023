@@ -78,13 +78,9 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     MatGridListModule,
     AngularSvgIconModule.forRoot(),
-<<<<<<< HEAD
-    MatFormFieldModule
-=======
     AngularFireModule.initializeApp(environment.firebase),
     MatFormFieldModule,
     FormsModule
->>>>>>> 256df073d2b1d75fe5beb0d70e7809b0ccd532d1
   ],
   providers: [],
   bootstrap: [AppComponent]
