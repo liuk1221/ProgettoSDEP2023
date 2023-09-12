@@ -40,24 +40,24 @@ export class FirebaseService {
   }
 
   // Rimozione
-  deleteMarble(id: number){
-    if (id in FirebaseService.id_list) {
-      FirebaseService.id_list.splice(FirebaseService.id_list.indexOf(id))
-      return this.http.delete(`${this.autolocate("marmi")}/-${id}.json`)
-    } else {
-      console.error("Invalid ID")
-      return
-    }
-  }
+  // deleteMarble(id: number){
+  //   if (id in FirebaseService.id_list) {
+  //     FirebaseService.id_list.splice(FirebaseService.id_list.indexOf(id))
+  //     return this.http.delete(`${this.autolocate("marmi")}/-${id}.json`)
+  //   } else {
+  //     console.error("Invalid ID")
+  //     return
+  //   }
+  // }
 
   // Modifica
-  updateMarble(id: number, body: ForumDataDB){
-    // return this.http.patch(`${url}/-${id}.json`, body)
-    if (!(id in FirebaseService.id_list)) {
-      console.error("Invalid ID")
-      return
-    }
-    return this.http.patch(`${this.autolocate("marmi")}/-${id}.json`, body)
-  }
+  // updateMarble(id: number, body: ForumDataDB){
+  //   // return this.http.patch(`${url}/-${id}.json`, body)
+  //   if (!(id in FirebaseService.id_list)) {
+  //     console.error("Invalid ID")
+  //     return
+  //   }
+  //   return this.http.patch(`${this.autolocate("marmi")}/-${id}.json`, body)
+  // }
 
 }
