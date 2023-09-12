@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "ProgettoAngular",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

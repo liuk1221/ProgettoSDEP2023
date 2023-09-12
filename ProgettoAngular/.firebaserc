@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "progettosdep2023": {
+      "hosting": {
+        "ProgettoAngular": [
+          "progettosdep2023"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "progettosdep2023"
+  }
+}

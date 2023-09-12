@@ -17,9 +17,12 @@
                     <path d="M16.3536 7.5L23.5 0.353554L30.6464 7.5L23.5 14.6464L16.3536 7.5Z" stroke="black" stroke-width="0.5"/>
                 </svg>
             </div>
-            <div style="width: 25%; text-align: right;">
-                <button mat-button class="bottoniFont"><mat-icon>person</mat-icon>Login</button>
-                <button mat-button class="bottoniFont"><mat-icon>create</mat-icon>Register</button>
+            <div *ngIf="!auth.isLoggedIn" style="width: 25%; text-align: right;">
+                <button mat-button class="bottoniFont" routerLink="login"><mat-icon>person</mat-icon>Login</button>
+                <button mat-button class="bottoniFont" routerLink="register"><mat-icon>create</mat-icon>Register</button>
+             </div>
+             <div *ngIf="auth.isLoggedIn" style="width: 25%; text-align: right;">
+                <button mat-button class="bottoniFont" (click)="onLogout()"><mat-icon>person</mat-icon>Logout</button>
              </div>
     
         </mat-toolbar-row>
@@ -33,6 +36,8 @@
                 <button mat-button class="bottoniFont" routerLink="faq">FAQ</button>
             </div>
             <div  style="width: 25%; text-align: right;">
+                <button *ngIf="auth.isAdmin" mat-icon-button class="bottoniFont"><mat-icon>admin_panel_settings</mat-icon></button>         
+                <!-- Va impostato il routerlink per la parte di inserimento dei prodotti -->
                 <button mat-icon-button class="bottoniFont" routerLink="cart"><mat-icon>shopping_cart</mat-icon>
                 </button>
             </div>

@@ -19,7 +19,6 @@ import { NotFoundComponent } from './componenti/not-found/not-found.component';
 import { ShopGridListComponent } from './componenti/shop/shop-grid-list/shop-grid-list.component';
 import { ShopProductCardComponent } from './componenti/shop/shop-product-card/shop-product-card.component';
 import { ShoppingCardComponent } from './componenti/shopping-card/shopping-card.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MarbleFormComponent } from './componenti/marble-form/marble-form.component';
 
 //Imports di angular material
@@ -31,6 +30,20 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from "@angular/material/grid-list";
 import { AngularSvgIconModule } from "angular-svg-icon";
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+//Imports di angular fire
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+import { LoginComponent } from './componenti/login/login.component';
+import { RegisterComponent } from './componenti/register/register.component';
+
+//FormsModule
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -48,7 +61,9 @@ import { AngularSvgIconModule } from "angular-svg-icon";
     ShoppingCardComponent,
     FooterComponent,
     ShopGridListComponent,
-    ShopProductCardComponent
+    ShopProductCardComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     HttpClientModule,
@@ -63,7 +78,13 @@ import { AngularSvgIconModule } from "angular-svg-icon";
     MatCardModule,
     MatGridListModule,
     AngularSvgIconModule.forRoot(),
+<<<<<<< HEAD
     MatFormFieldModule
+=======
+    AngularFireModule.initializeApp(environment.firebase),
+    MatFormFieldModule,
+    FormsModule
+>>>>>>> 256df073d2b1d75fe5beb0d70e7809b0ccd532d1
   ],
   providers: [],
   bootstrap: [AppComponent]
