@@ -1,5 +1,3 @@
-import { Input } from "@angular/core"
-
 export interface ForumDataDB {
     nome: string,
     provenienza: string,
