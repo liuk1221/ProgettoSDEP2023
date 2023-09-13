@@ -8,6 +8,7 @@ import { CartComponent } from './componenti/cart/cart.component';
 import { NotFoundComponent } from './componenti/not-found/not-found.component';
 import { LoginComponent } from './componenti/login/login.component';
 import { RegisterComponent } from './componenti/register/register.component';
+import { ShopNowComponent } from './componenti/shop-now/shop-now.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:'cart', component: CartComponent},
   {path:'login', component: LoginComponent},
   {path:'register', component: RegisterComponent},
+  {path:'shop_now', component: ShopNowComponent},
   {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '/404'}  
 ];

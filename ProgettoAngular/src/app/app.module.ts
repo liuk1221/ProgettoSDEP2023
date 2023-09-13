@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -31,6 +31,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from "@angular/material/grid-list";
 import { AngularSvgIconModule } from "angular-svg-icon";
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 //Imports di angular fire
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -44,6 +45,7 @@ import { RegisterComponent } from './componenti/register/register.component';
 
 //FormsModule
 import { FormsModule } from '@angular/forms';
+import { ShopNowComponent } from './componenti/shop-now/shop-now.component';
 
 
 
@@ -63,7 +65,8 @@ import { FormsModule } from '@angular/forms';
         ShopGridListComponent,
         ShopProductCardComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        ShopNowComponent
     ],
     providers: [
       {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
@@ -86,6 +89,7 @@ import { FormsModule } from '@angular/forms';
         MatFormFieldModule,
         FormsModule,
         MarbleFormComponent
-    ]
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
