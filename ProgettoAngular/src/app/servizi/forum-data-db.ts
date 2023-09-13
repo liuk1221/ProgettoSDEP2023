@@ -1,4 +1,5 @@
 export interface ForumDataDB {
+    id: number,
     nome: string,
     provenienza: string,
     descrizione: string,
@@ -11,3 +12,5 @@ export interface ForumDataDB {
     qta: number,
     prezzo: number
 }
+
+//ForumDataDB

@@ -1,32 +1,40 @@
-<mat-grid-list 
-  cols="4">
-  <mat-grid-tile
-      *ngFor="let tile of list_of_products()"
-      [colspan]="1"
-      [rowspan]="1"
-      [style.background]="'lightgray'">
+<div
+  class="main-shop-window"
+  style="display: flex; flex-direction: row;">
+  <div
+    class="div-shop-cards"
+    *ngFor="let tile of list_of_products()">
+    <h1 
+    class="product-title">
+    </h1>
+    <body>
       <div>
-        <h1 
-        class="product-title">
-        </h1>
-        <body>
-          <div *ngFor="let item of tile | keyvalue">
-            <!-- 
-              product card
-              header e footer
-              bottoni
-            -->
-            <mat-card
-              class="marble-card">
-                <mat-card-header>
-                  <mat-card-title>
-
-                  </mat-card-title>
-                </mat-card-header>
-            </mat-card>
-          </div>
-        </body>
+          <!-- 
+            product card
+            header e footer
+            bottoni
+          -->
+        <mat-card class="marble-card">
+          <mat-card-header>
+              {{tile.nome}}
+          </mat-card-header>
+          <mat-card-content>
+            <ol>
+              <!-- <li>Larghezza: {{tile.dim_x}}</li>
+              <li>Altezza: {{tile.dim_y}}</li>
+              <li>Profondità : {{tile.dim_z}}</li> -->
+            </ol>
+            <div class="div-card-image">
+              <img class="mat-card-image" [src]="get_src_uri(tile.nome)" alt="">
+              <mat-card-content class="descrizione">
+                <p>{{tile.descrizione}}</p>
+              </mat-card-content>
+            </div>
+            <span>Quantità: {{tile.qta}}<br></span>
+            <span>Prezzo: {{tile.prezzo}}</span>
+          </mat-card-content>
+        </mat-card>
       </div>
-    </mat-grid-tile>
-  </mat-grid-list>
-  
+    </body>
+  </div>
+</div>

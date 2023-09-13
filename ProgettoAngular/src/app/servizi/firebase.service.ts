@@ -60,6 +60,7 @@ export class FirebaseService implements OnInit{
   }
 
   // popolazione di test
+  private id_cntr = 0;
   private nome_array = [
     "Travertino",
     "Marmo di Carrara",
@@ -116,10 +117,12 @@ export class FirebaseService implements OnInit{
       dim_z: 0,
       qta: 0,
       prezzo: 0,
-      descrizione: ''
+      descrizione: '',
+      id: 0
     };
 
     let name_desc = this.rand(this.nome_array.length)
+    db_data_dummy['id'] = this.id_cntr
     db_data_dummy['nome'] = this.nome_array[name_desc]
     db_data_dummy['descrizione'] = this.desc_array[name_desc]
     db_data_dummy['provenienza'] = this.prov_array[this.rand(this.prov_array.length)]
@@ -132,6 +135,7 @@ export class FirebaseService implements OnInit{
     db_data_dummy['qta'] = this.rand(1000)
     db_data_dummy['prezzo'] = this.rand(50)
     // console.log(FirebaseService.id_list)
+    this.id_cntr += 1;
     return this.http.post(
       this.autolocate("marmi"),
       db_data_dummy)

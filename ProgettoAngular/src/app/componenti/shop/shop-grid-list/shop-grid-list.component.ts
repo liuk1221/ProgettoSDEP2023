@@ -34,7 +34,9 @@ export class ShopGridListComponent {
     return features;
   }
 
-
+  get_src_uri(name: string){
+    return '../../../assets/HomePageImages/marmojpgs/'+name.replaceAll(' ','-')+'.jpg'
+  }
 
 }
 

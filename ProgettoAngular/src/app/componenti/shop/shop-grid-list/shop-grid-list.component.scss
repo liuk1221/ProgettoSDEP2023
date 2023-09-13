@@ -1,6 +1,6 @@
 .mat-grid-tile {
     width: 100px;
-    height: 100px;
+    height: 200px;
     padding-left: 5px;
     padding-right: 5px;
     padding-top: 5px;
@@ -21,4 +21,28 @@
     height: 49%;
     padding-left: 0%;
     padding-right: 55%;
+}
+
+.descrizione {
+    font-size:small;
+    text-justify:distribute-all-lines;
+}
+
+.marble-card {
+    background-color: #D9D9D9;
+    margin: 10px;
+}
+
+.marble-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.body-card{
+    width: calc(25% - 16px);
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
 }

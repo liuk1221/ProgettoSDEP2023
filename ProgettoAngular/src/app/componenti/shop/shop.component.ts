@@ -13,6 +13,7 @@ export class ShopComponent implements OnInit {
   public rows : number = 4;
   public prodotti : ForumDataDB[];
   public marbleform: ForumDataDB = {
+    id: 0,
     nome: '',
     provenienza: '',
     colore: '',
@@ -36,18 +37,13 @@ export class ShopComponent implements OnInit {
       this.firebase.retrieveMarble(
       ).subscribe((data: any) => {
         console.log(data)
-        this.prodotti = Object.keys(data).map(key => { 
-        this.ids.push(key)
+        this.prodotti = Object.keys(data).map(key => {
         data[key]['id'] = key
         return data[key] 
       })
       console.log("PRODOTTI:"+this.prodotti)
       console.log("IDS:"+this.ids)
       })
-  }
-
-  get_all_ids() {
-    return this.ids
   }
   
   onSubmit() {
@@ -78,8 +74,8 @@ export class ShopComponent implements OnInit {
     // patch -> body : nuovi dati aggiornati
     // id_to_del : string = this.prodotti[<prodotto interessato>][id];
     // marble_purchase : JSON = {};
-    var column = this.get_all_ids();
-    if (!(this.id_to_act in column)) {
+    return
+    if (false) {
       this.firebase.insertMarble(
         this.marbleform
       ).subscribe(data => {
@@ -104,8 +100,6 @@ export class ShopComponent implements OnInit {
     // Implement add to cart logic here
     // You can use a service to manage the shopping cart
   }
-
-
 
   quick_pop(){
     this.firebase.dummyIMarble(
