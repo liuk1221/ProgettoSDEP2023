@@ -85,13 +85,8 @@ import { ShopNowComponent } from './componenti/shop-now/shop-now.component';
         AngularSvgIconModule.forRoot(),
         AngularFireModule.initializeApp(environment.firebase),
         MatFormFieldModule,
-        FormsModule,
-<<<<<<< HEAD
-        MarbleFormComponent
+        FormsModule
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
-=======
-    ]
->>>>>>> a828afc41805d82cb1ba627e4b671706c57623e0
 })
 export class AppModule { }
