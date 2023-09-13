@@ -17,9 +17,8 @@ import { FaqComponent } from './componenti/faq/faq.component';
 import { CartComponent } from './componenti/cart/cart.component';
 import { NotFoundComponent } from './componenti/not-found/not-found.component';
 import { ShopGridListComponent } from './componenti/shop/shop-grid-list/shop-grid-list.component';
-import { ShopProductCardComponent } from './componenti/shop/shop-product-card/shop-product-card.component';
 import { ShoppingCardComponent } from './componenti/shopping-card/shopping-card.component';
-import { MarbleFormComponent } from './componenti/shop/marble-form/marble-form.component';
+
 
 //Imports di angular material
 import { HttpClientModule } from "@angular/common/http";
@@ -61,7 +60,6 @@ import { FormsModule } from '@angular/forms';
         ShoppingCardComponent,
         FooterComponent,
         ShopGridListComponent,
-        ShopProductCardComponent,
         LoginComponent,
         RegisterComponent
     ],
@@ -85,7 +83,6 @@ import { FormsModule } from '@angular/forms';
         AngularFireModule.initializeApp(environment.firebase),
         MatFormFieldModule,
         FormsModule,
-        MarbleFormComponent
     ]
 })
 export class AppModule { }

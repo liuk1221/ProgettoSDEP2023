@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FirebaseService } from 'src/app/servizi/firebase.service';
-import { MarbleFormComponent } from "./marble-form/marble-form.component";
 import { ForumDataDB } from 'src/app/servizi/forum-data-db';
 
 @Component({

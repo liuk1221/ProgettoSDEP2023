@@ -19,19 +19,15 @@
               {{tile.nome}}
           </mat-card-header>
           <mat-card-content>
-            <ol>
-              <!-- <li>Larghezza: {{tile.dim_x}}</li>
-              <li>Altezza: {{tile.dim_y}}</li>
-              <li>Profondità : {{tile.dim_z}}</li> -->
-            </ol>
-            <div class="div-card-image">
-              <img class="mat-card-image" [src]="get_src_uri(tile.nome)" alt="">
-              <mat-card-content class="descrizione">
+              <img class="mat-card-image" [src]="get_src_uri(tile.nome)" alt="NoImage">
+              <span style="height: 20px;"></span>
+              <mat-card-content class="descrizione" style="height: 160px;">
                 <p>{{tile.descrizione}}</p>
               </mat-card-content>
-            </div>
-            <span>Quantità: {{tile.qta}}<br></span>
-            <span>Prezzo: {{tile.prezzo}}</span>
+            <span>ID Lotto: {{tile.id}}<br></span>
+            <span>Quantità disponibile: {{tile.qta}} Kg<br></span>
+            <span>Prezzo specifico lotto: {{tile.prezzo}} €/Kg</span>
+            <span style="height: 20px;"></span>
           </mat-card-content>
         </mat-card>
       </div>

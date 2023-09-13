@@ -46,3 +46,15 @@
     margin-left: 10px;
     margin-top: 10px;
 }
+
+.main-shop-window {
+    display: flex;
+    flex-wrap: wrap; /* Abilita l'avvolgimento degli elementi */
+    justify-content: space-between; /* Spazio tra le cards */
+  }
+
+.div-shop-cards {
+    flex-basis: calc(25% - 20px); /* Specifica la larghezza fissa delle cards (33.33% - margine) */
+    margin: 10px; /* Aggiungi un margine tra le cards per separarle */
+    box-sizing: border-box; /* Assicurati che il margine sia incluso nella larghezza */
+}
