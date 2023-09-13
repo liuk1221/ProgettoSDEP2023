@@ -17,9 +17,8 @@ import { FaqComponent } from './componenti/faq/faq.component';
 import { CartComponent } from './componenti/cart/cart.component';
 import { NotFoundComponent } from './componenti/not-found/not-found.component';
 import { ShopGridListComponent } from './componenti/shop/shop-grid-list/shop-grid-list.component';
-import { ShopProductCardComponent } from './componenti/shop/shop-product-card/shop-product-card.component';
 import { ShoppingCardComponent } from './componenti/shopping-card/shopping-card.component';
-import { MarbleFormComponent } from './componenti/shop/marble-form/marble-form.component';
+
 
 //Imports di angular material
 import { HttpClientModule } from "@angular/common/http";
@@ -63,7 +62,6 @@ import { ShopNowComponent } from './componenti/shop-now/shop-now.component';
         ShoppingCardComponent,
         FooterComponent,
         ShopGridListComponent,
-        ShopProductCardComponent,
         LoginComponent,
         RegisterComponent,
         ShopNowComponent
@@ -88,8 +86,12 @@ import { ShopNowComponent } from './componenti/shop-now/shop-now.component';
         AngularFireModule.initializeApp(environment.firebase),
         MatFormFieldModule,
         FormsModule,
+<<<<<<< HEAD
         MarbleFormComponent
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
+=======
+    ]
+>>>>>>> a828afc41805d82cb1ba627e4b671706c57623e0
 })
 export class AppModule { }
