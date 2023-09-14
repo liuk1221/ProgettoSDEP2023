@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { AngularFirestore } from '@angular/fire/compat/firestore'
 import { Router } from '@angular/router';
+import { user } from 'rxfire/auth';
 
 
 @Injectable({
@@ -14,6 +15,8 @@ export class AuthService {
 
   isAdmin: boolean = null
   isLoggedIn = false
+  userEmail: string = null
+  
   //Inniettiamo il pacchetto nel costruttore
   constructor(private fireauth : AngularFireAuth, private router : Router,  private firestore: AngularFirestore) { }
 
@@ -22,7 +25,9 @@ export class AuthService {
     this.fireauth.signInWithEmailAndPassword(email,password).then( () => {          //Metodo che accede ad un istanza già esistente
       localStorage.setItem('token','true')                                          //Crea l'item nello store locale del browser
       this.router.navigate([''])                                                    //Mi riporta alla home dopo il login
-      this.isLoggedIn = true                                        
+      this.isLoggedIn = true
+      this.userEmail=email                                                          //Salva la mail solo se l'utente è salvato
+      console.log("Il login è andato a buon fine, email: "+this.userEmail)
     }, err => {
       alert('Oops! Qualcosa è andato storto!')                                      //Messaggio di errore nel caso di mancato login
       this.router.navigate(['/login'])                                              //Mi riporta alla pagina di login
@@ -59,16 +64,13 @@ export class AuthService {
       this.router.navigate(['/login'])                                              //Riporta alla pagina di login
       this.isLoggedIn = false
       this.isAdmin = false
+      this.userEmail = null
+      console.log("Il logout è andato a buon fine, email: "+this.userEmail)
     }, err => {
       alert('Oops! Qualcosa è andato storto!')                                      //Messaggio di errore nel caso di mancato logout
     })
   }
 
-
-  // getUserInfo(): {} | undefined | null{
-  //   return this.fireauth.authState.subscribe(user => {
-  //   });
-  // }
 
   getUserInfoSave() {
     this.fireauth.authState.subscribe(user => {
