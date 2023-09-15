@@ -1,5 +1,5 @@
 export interface ForumDataDB {
-    id: number,
+    id: string,
     nome: string,
     provenienza: string,
     descrizione: string,
@@ -13,4 +13,8 @@ export interface ForumDataDB {
     prezzo: number
 }
 
-//ForumDataDB
+export interface OrdineDB {
+    email: string,
+    id_marmo: string,
+    marmo: ForumDataDB
+}

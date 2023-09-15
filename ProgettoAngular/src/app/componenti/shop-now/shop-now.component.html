@@ -1,28 +1,114 @@
 <div
     class="purchase-options">
-    <div class="example-container">
-        <mat-form-field>
-          <input matInput placeholder="Input">
-        </mat-form-field>
-      
-        <mat-form-field>
-          <textarea matInput placeholder="Textarea"></textarea>
-        </mat-form-field>
-      
-        <mat-form-field>
-          <mat-select placeholder="Select">
-            <mat-option value="option">Option</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-
-      <div>
-        <label>Float label: </label>
-        <mat-radio-group formControlName="floatLabel">
-          <mat-radio-button value="auto">Auto</mat-radio-button>
-          <mat-radio-button value="always">Always</mat-radio-button>
-          <mat-radio-button value="never">Never</mat-radio-button>
-        </mat-radio-group>
-      </div>
-          
+    <div 
+      class="example-container"
+      *ngIf="this.login.userEmail">
+      <ng-container 
+        forms-and-previews
+        style="display: flex; flex-direction: row;">
+        <div
+          forms>
+          <!-- ID -->
+          <header>
+            <h1>
+              <strong>
+                Prego appore i dati del proprio acquisto
+              </strong>
+            </h1>
+            <p>
+              Può copiare l'ID lotto dell'oggetto di sua<br>
+              preferenza o sceglierlo dal menu a tendina
+            </p>
+          </header>
+          <div
+            ordine-input>
+            <mat-form-field
+              [hideRequiredMarker]="true"
+              id-box>
+              <mat-label
+              id-label>
+              ID
+              </mat-label>
+              <!-- <input
+              matInput 
+              placeholder=""
+              maxlength="19"
+              #idinput
+              required
+              (keyup.enter)="submit('-'+idinput.value)">
+              {{this.one_slab.id}} -->
+              <!-- <mat-hint align="end">{{idinput.value.length}}/19</mat-hint> -->
+              <mat-select
+                id-select
+                placeholder="---">
+                  <mat-option
+                    value=""
+                    *ngFor="let marble of list_all_marble()"
+                    #ithslab
+                    (click)="submit(this.ithslab.viewValue)">
+                      {{marble.id}}
+                  </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br><br><br>
+            <mat-form-field
+              [hideRequiredMarker]="true"
+              qta-box
+              hintLabel="Massima quantità acquistabile">
+              <mat-label>Amount</mat-label>
+              <input 
+                matInput 
+                type="number" 
+                class="example-right-align" 
+                placeholder="0"
+                #amountinput
+                (keyup.enter)="send_amount(amountinput.value)">
+              <mat-hint align="end">{{this.one_slab.qta}}</mat-hint>
+            </mat-form-field>
+          </div>
+        </div>
+        <br><br><br>
+        <div
+          div-preview
+          *ngIf="this.flagStatus()">
+          <mat-card
+            card-preview>
+            <mat-card-title>
+              <strong>
+                {{this.ordine.marmo.nome}}
+              </strong>
+            </mat-card-title>
+            <mat-card-subtitle>
+              <p>ID Lotto: {{this.ordine.marmo.id}}<br></p>
+              <strong>Provenienza: {{this.ordine.marmo.provenienza}}</strong><br>
+              <p>{{this.ordine.marmo.descrizione}}</p>
+            </mat-card-subtitle>
+            <img [src]="this.get_src_uri(this.ordine.marmo.nome)" alt="NoImage">
+            <span>Dimensioni:<br>{{this.ordine.marmo.dim_x}}<br>{{this.ordine.marmo.dim_y}}<br>{{this.ordine.marmo.dim_z}}</span>
+            <span>Sta acquistando:<br>{{this.ordine.marmo.qta}} oggetti<br></span>
+            <span>Prezzo: {{this.ordine.marmo.prezzo}}$<br></span>
+            <div
+              colori>
+              <span>Colore: {{this.ordine.marmo.colore}}<br></span>
+              <span *ngIf="veinsStatus()">Colore Venatura: {{this.ordine.marmo.colore_v}}</span>
+            </div>
+            <div
+              purchase-button>
+              <button
+                (click)="purchaseMarble()">
+                Compra
+              </button>
+            </div>
+          </mat-card>
+        </div>
+      </ng-container>
+  </div>
+  <div
+    *ngIf="!(this.login.userEmail)">
+    <h1>
+      <strong>
+        Per favore, eseguire il login per procedere con gli acquisti
+      </strong>
+    </h1>
+  </div>
 </div>

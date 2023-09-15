@@ -1,2 +1,26 @@
-.purchase-optios {
+.main {
+    width: 400px;
+    height: 400px;
+}
+
+.purchase-options{
+    padding-top: 200px;
+    padding-left: 30px;
+    padding-bottom: 50px;
+    align-items: left;
+    text-align: left;
+}
+
+.mat-select-panel mat-option.mat-option {
+    height: unset;
+  }
+  
+  .mat-option-text.mat-option-text {
+    white-space: normal;
+    font-size: small !important;
+  }
+
+img {
+    width: 50%;
+    height: 50%;
 }

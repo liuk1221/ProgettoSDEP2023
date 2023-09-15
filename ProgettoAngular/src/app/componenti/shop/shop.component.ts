@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FirebaseService } from 'src/app/servizi/firebase.service';
 import { ForumDataDB } from 'src/app/servizi/forum-data-db';
+import { ShopNowComponent } from '../shop-now/shop-now.component';
 
 @Component({
   selector: 'app-shop',
@@ -12,7 +13,7 @@ export class ShopComponent implements OnInit {
   public rows : number = 4;
   public prodotti : ForumDataDB[];
   public marbleform: ForumDataDB = {
-    id: 0,
+    id: '',
     nome: '',
     provenienza: '',
     colore: '',
@@ -27,9 +28,10 @@ export class ShopComponent implements OnInit {
   };
   public pick : number[] = [0,0,0,0];
   private ids : any[] = [];
-  private id_to_act : number = 0;
+  private id_to_act : string = '';
 
-  constructor(private firebase: FirebaseService) { }
+  constructor(
+    private firebase: FirebaseService) { }
   
   ngOnInit(): void { 
       // GET
@@ -66,38 +68,10 @@ export class ShopComponent implements OnInit {
       console.log(data)
     })
   }
-
-  onPurchaseMarble() { 
-    // PUT/PATCH
-    // put ---> body : nuova intera entita'
-    // patch -> body : nuovi dati aggiornati
-    // id_to_del : string = this.prodotti[<prodotto interessato>][id];
-    // marble_purchase : JSON = {};
-    return
-    if (false) {
-      this.firebase.insertMarble(
-        this.marbleform
-      ).subscribe(data => {
-        console.log(data)
-      })
-    } else {
-      this.firebase.updateMarble(
-        this.id_to_act,
-        this.marbleform
-      ).subscribe((data : any) => {
-        console.log(data)
-      })
-    }
-  }
   
   filterProducts() {
     // Implement filtering logic here based on user input
     // Update this.filteredProducts with the filtered products
-  }
-
-  addToCart(product: any) {
-    // Implement add to cart logic here
-    // You can use a service to manage the shopping cart
   }
 
   quick_pop(){

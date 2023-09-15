@@ -18,8 +18,8 @@ const routes: Routes = [
   {path:'faq', component: FaqComponent},
   {path:'cart', component: CartComponent},
   {path:'login', component: LoginComponent},
+  {path:'shopnow', component: ShopNowComponent},
   {path:'register', component: RegisterComponent},
-  {path:'shop_now', component: ShopNowComponent},
   {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '/404'}  
 ];

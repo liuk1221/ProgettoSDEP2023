@@ -18,6 +18,7 @@ import { CartComponent } from './componenti/cart/cart.component';
 import { NotFoundComponent } from './componenti/not-found/not-found.component';
 import { ShopGridListComponent } from './componenti/shop/shop-grid-list/shop-grid-list.component';
 import { ShoppingCardComponent } from './componenti/shopping-card/shopping-card.component';
+import { ShopNowComponent } from './componenti/shop-now/shop-now.component';
 
 
 //Imports di angular material
@@ -29,8 +30,11 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from "@angular/material/grid-list";
 import { AngularSvgIconModule } from "angular-svg-icon";
-import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from "@angular/material/radio";
+import { MatInputModule } from "@angular/material/input";
+import { MatDialogModule } from "@angular/material/dialog";
 
 //Imports di angular fire
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -43,9 +47,9 @@ import { LoginComponent } from './componenti/login/login.component';
 import { RegisterComponent } from './componenti/register/register.component';
 
 //FormsModule
-import { FormsModule } from '@angular/forms';
-import { ShopNowComponent } from './componenti/shop-now/shop-now.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { DialogRef } from '@angular/cdk/dialog';
 
 
 
@@ -64,10 +68,15 @@ import { ShopNowComponent } from './componenti/shop-now/shop-now.component';
         ShopGridListComponent,
         LoginComponent,
         RegisterComponent,
-        ShopNowComponent
+        ShopNowComponent,
     ],
     providers: [
-      {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+        {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {
+            appearance: 'outline',
+            floatLabel: 'always'
+        }},
+        ShopComponent,
+        ShopNowComponent
     ],
     bootstrap: [AppComponent],
     imports: [
@@ -85,8 +94,13 @@ import { ShopNowComponent } from './componenti/shop-now/shop-now.component';
         AngularSvgIconModule.forRoot(),
         AngularFireModule.initializeApp(environment.firebase),
         MatFormFieldModule,
-        FormsModule
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+        FormsModule,
+        MatSelectModule,
+        MatRadioModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatDialogModule,
+        CommonModule
+    ]
 })
 export class AppModule { }

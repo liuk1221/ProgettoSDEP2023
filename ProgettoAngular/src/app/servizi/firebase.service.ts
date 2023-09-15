@@ -1,7 +1,8 @@
 import { Injectable, OnInit, importProvidersFrom } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ForumDataDB } from "./forum-data-db";
+import { ForumDataDB, OrdineDB } from "./forum-data-db";
 import { NONE_TYPE } from '@angular/compiler';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -44,9 +45,12 @@ export class FirebaseService implements OnInit{
     // fa un retrieve dell'intero DB, per ngOnInit
     return this.http.get(this.autolocate("marmi"))
   }
+  retrieveOneMarble(id: string){
+    return this.http.get(this.autolocate("marmi/"+id))
+  }
 
   // Rimozione singola
-  deleteMarble(id: number){
+  deleteMarble(id: string){
     return this.http.delete(`${this.autolocate("marmi")}/-${id}.json`)
   }
 
@@ -59,9 +63,30 @@ export class FirebaseService implements OnInit{
     return this.http.patch(`${this.autolocate("marmi")}/-${id}.json`, body)
   }
 
+  retrieveOrdine(body: OrdineDB){
+    return this.http.get(this.autolocate("ordini"))
+  }
+  insertOneOrdine(id: string){
+    return this.http.get(this.autolocate("ordini/"+id))
+  }
+
+  insertOrdine(body: OrdineDB) {
+    return this.http.post(this.autolocate("ordini"), body)
+  }
+
+  deleteOrdine(id: string){
+    return this.http.delete(this.autolocate("ordini/"+id))
+  }
+
+  deleteAllOrdini(){}
+
+  updateOrdine(id: string, body: OrdineDB){
+    return this.http.patch(this.autolocate("ordini/"+id), body)
+  }
+
   // popolazione di test
   private id_cntr = 0;
-  private nome_array = [
+  public nome_array = [
     "Travertino",
     "Marmo di Carrara",
     "Calacatta",
@@ -71,7 +96,7 @@ export class FirebaseService implements OnInit{
     "Breccia Medicea",
     "Marmo di Siena"
   ];
-  private desc_array = [
+  public desc_array = [
       "il travertino è una roccia calcarea con un aspetto distintivo e venature che lo rendono molto apprezzato nell'architettura e nella decorazione degli interni ed esterni. La sua versatilità, bellezza naturale e varietà di colori lo rendono una scelta popolare per una serie di applicazioni.",
       "il marmo di Carrara è una delle varietà di marmo più prestigiose al mondo, ampiamente utilizzato in architettura e scultura grazie al suo colore bianco puro, alla sua texture uniforme e alla sua durabilità. È un materiale iconico che ha lasciato un'impronta significativa nella storia dell'arte e dell'architettura.",
       'il marmo di Calacatta è una varietà di marmo pregiato rinomato per la sua venatura grigia su fondo bianco o crema, la sua eleganza e il suo prestigio. È una scelta popolare in progetti di design di alto livello e contribuisce a conferire un tocco di lusso e raffinatezza agli spazi.',
@@ -81,16 +106,17 @@ export class FirebaseService implements OnInit{
       'la Breccia Medicea è una varietà di marmo pregiato con una composizione unica che combina frammenti di rocce e pietre in una matrice di marmo. La sua estetica unica, la sua versatilità e la sua storia storica lo rendono una scelta apprezzata in progetti di design e architettura che cercano un tocco di eleganza e originalità.',
       "il marmo di Siena è una varietà di marmo pregiato con colori caldi e venature distintive. La sua bellezza, resistenza e versatilità lo rendono una scelta apprezzata in progetti di design e architettura che cercano di conferire eleganza e carattere agli spazi. La sua storia culturale e artistica lo rende un materiale iconico nell'arte e nell'architettura."
   ]
-  private prov_array = [
+  public prov_array = [
     "Roma",
     "Carrara",
-    "Arezzo",
+    "Carrara",
+    "Lasa",
     "Verona",
-    "Perugia",
-    "Padova",
-    "Genova"
+    "Levanto",
+    "Stazzema",
+    "Siena"
   ]
-  private color_array = [
+  public color_array = [
     "#000000",
     "#181818",
     "#FFFFFF",
@@ -118,11 +144,10 @@ export class FirebaseService implements OnInit{
       qta: 0,
       prezzo: 0,
       descrizione: '',
-      id: 0
+      id: ''
     };
-
+    
     let name_desc = this.rand(this.nome_array.length)
-    db_data_dummy['id'] = this.id_cntr
     db_data_dummy['nome'] = this.nome_array[name_desc]
     db_data_dummy['descrizione'] = this.desc_array[name_desc]
     db_data_dummy['provenienza'] = this.prov_array[this.rand(this.prov_array.length)]
