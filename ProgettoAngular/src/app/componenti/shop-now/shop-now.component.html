@@ -40,7 +40,8 @@
               <!-- <mat-hint align="end">{{idinput.value.length}}/19</mat-hint> -->
               <mat-select
                 id-select
-                placeholder="---">
+                placeholder="---"
+                [disabled]="isId()">
                   <mat-option
                     value=""
                     *ngFor="let marble of list_all_marble()"
@@ -62,6 +63,7 @@
                 class="example-right-align" 
                 placeholder="0"
                 #amountinput
+                [disabled]="isQta()"
                 (keyup.enter)="send_amount(amountinput.value)">
               <mat-hint align="end">{{this.one_slab.qta}}</mat-hint>
             </mat-form-field>
@@ -97,6 +99,10 @@
               <button
                 (click)="purchaseMarble()">
                 Compra
+              </button>
+              <button
+                (click)="deleteOrder()">
+                Cancella
               </button>
             </div>
           </mat-card>

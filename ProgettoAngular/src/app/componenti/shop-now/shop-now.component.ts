@@ -19,24 +19,21 @@ import { AuthService } from 'src/app/servizi/auth.service';
 })
 export class ShopNowComponent implements OnInit {
   
-  public one_slab : ForumDataDB = {
-    id: '',
-    nome: '',
-    provenienza: '',
-    descrizione: '',
-    colore: '',
-    venature: false,
-    colore_v: '',
-    dim_x: 0,
-    dim_y: 0,
-    dim_z: 0,
-    qta: 0,
-    prezzo: 0
-  };
-  public ordine : OrdineDB = {
-    email: '',
-    id_marmo: '',
-    marmo: {
+  public one_slab : ForumDataDB;
+  public ordine : OrdineDB;
+  public show_preview : boolean;
+  public id_present : boolean;
+  public ordine_present : boolean;
+  public id_ordine : string;
+
+  constructor (
+    public magazzino: FirebaseService,
+    public negozio: ShopComponent,
+    public login: AuthService) { }
+
+  ngOnInit() {
+    this.negozio.ngOnInit()
+    this.one_slab = {
       id: '',
       nome: '',
       provenienza: '',
@@ -49,20 +46,29 @@ export class ShopNowComponent implements OnInit {
       dim_z: 0,
       qta: 0,
       prezzo: 0
+    };
+    this.ordine = {
+      email: '',
+      id_marmo: '',
+      marmo: {
+        id: '',
+        nome: '',
+        provenienza: '',
+        descrizione: '',
+        colore: '',
+        venature: false,
+        colore_v: '',
+        dim_x: 0,
+        dim_y: 0,
+        dim_z: 0,
+        qta: 0,
+        prezzo: 0
+      }
     }
-  };
-  public show_preview : boolean = false;
-  public id_present : boolean = false;
-  public ordine_present : boolean = false;
-  public id_ordine : string = '';
-
-  constructor (
-    public magazzino: FirebaseService,
-    public negozio: ShopComponent,
-    public login: AuthService) { }
-
-  ngOnInit() {
-    this.negozio.ngOnInit()
+    this.show_preview = false;
+    this.id_present = false;
+    this.ordine_present = false;
+    this.id_ordine = '';
   }
 
   private submit_id(id: string) : void{
@@ -139,6 +145,10 @@ export class ShopNowComponent implements OnInit {
     }
   }
 
+  deleteOrder(){
+    this.ngOnInit()
+  }
+
   public list_all_marble() {
     return this.negozio.prodotti
   }
@@ -159,6 +169,10 @@ export class ShopNowComponent implements OnInit {
 
   public isId() {
     return this.id_present;
+  }
+
+  public isQta() {
+    return this.ordine.marmo.qta != 0;
   }
 
   get_src_uri(name: string){
