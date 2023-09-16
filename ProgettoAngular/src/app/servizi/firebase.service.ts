@@ -63,7 +63,7 @@ export class FirebaseService implements OnInit{
     return this.http.patch(`${this.autolocate("marmi")}/-${id}.json`, body)
   }
 
-  retrieveOrdine(body: OrdineDB){
+  retrieveOrdine(){
     return this.http.get(this.autolocate("ordini"))
   }
   insertOneOrdine(id: string){

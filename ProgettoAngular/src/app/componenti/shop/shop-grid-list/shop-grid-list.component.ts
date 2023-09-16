@@ -11,7 +11,7 @@ import { JsonPipe } from '@angular/common';
 export class ShopGridListComponent {
   public result_query : ForumDataDB | ForumDataDB[];
 
-  constructor (private shop: ShopComponent) { }
+  constructor (public shop: ShopComponent) { }
 
   // keep the following:
   

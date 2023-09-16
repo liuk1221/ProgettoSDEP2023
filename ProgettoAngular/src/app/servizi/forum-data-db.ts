@@ -14,7 +14,7 @@ export interface ForumDataDB {
 }
 
 export interface OrdineDB {
+    id_ordine: string,
     email: string,
-    id_marmo: string,
     marmo: ForumDataDB
 }

@@ -29,6 +29,12 @@
             <span>Prezzo specifico lotto: {{tile.prezzo}} €/Kg</span>
             <span style="height: 20px;"></span>
           </mat-card-content>
+          <button
+            order-button
+            routerLink="shopnow"
+            (click)="this.shop.purchaseMarble(tile)">
+            Acquista subito
+          </button>
         </mat-card>
       </div>
     </body>

@@ -32,25 +32,12 @@ export class ShopNowComponent implements OnInit {
     public login: AuthService) { }
 
   ngOnInit() {
-    this.negozio.ngOnInit()
-    this.one_slab = {
-      id: '',
-      nome: '',
-      provenienza: '',
-      descrizione: '',
-      colore: '',
-      venature: false,
-      colore_v: '',
-      dim_x: 0,
-      dim_y: 0,
-      dim_z: 0,
-      qta: 0,
-      prezzo: 0
-    };
-    this.ordine = {
-      email: '',
-      id_marmo: '',
-      marmo: {
+    // this.negozio.ngOnInit()
+    if (this.negozio.preorder) {
+      this.ordine.email = this.login.userEmail;
+      this.ordine.marmo = this.negozio.marbleform;
+    } else {
+      this.one_slab = {
         id: '',
         nome: '',
         provenienza: '',
@@ -63,6 +50,24 @@ export class ShopNowComponent implements OnInit {
         dim_z: 0,
         qta: 0,
         prezzo: 0
+      };
+      this.ordine = {
+        id_ordine: '',
+        email: '',
+        marmo: {
+          id: '',
+          nome: '',
+          provenienza: '',
+          descrizione: '',
+          colore: '',
+          venature: false,
+          colore_v: '',
+          dim_x: 0,
+          dim_y: 0,
+          dim_z: 0,
+          qta: 0,
+          prezzo: 0
+        }
       }
     }
     this.show_preview = false;
@@ -84,7 +89,6 @@ export class ShopNowComponent implements OnInit {
         this.one_slab = element;
       }
       this.one_slab.id = id;
-      this.ordine.id_marmo = id;
       this.id_present = true;
     }
     console.log(this.one_slab)
@@ -119,7 +123,7 @@ export class ShopNowComponent implements OnInit {
   
   public preview(){
     // impacchetta ordine
-    this.ordine.id_marmo = this.one_slab.id;
+
     this.ordine.marmo.id = this.one_slab.id;
     this.ordine.marmo.nome = this.one_slab.nome;
     this.ordine.marmo.provenienza = this.one_slab.provenienza;

@@ -12,39 +12,40 @@ import { ShopNowComponent } from '../shop-now/shop-now.component';
 export class ShopComponent implements OnInit {
   public rows : number = 4;
   public prodotti : ForumDataDB[];
-  public marbleform: ForumDataDB = {
-    id: '',
-    nome: '',
-    provenienza: '',
-    colore: '',
-    venature: false,
-    colore_v: '',
-    dim_x: 0,
-    dim_y: 0,
-    dim_z: 0,
-    qta: 0,
-    prezzo: 0,
-    descrizione: ''
-  };
+  public marbleform: ForumDataDB;
   public pick : number[] = [0,0,0,0];
-  private ids : any[] = [];
   private id_to_act : string = '';
+  public preorder : boolean;
 
   constructor(
     private firebase: FirebaseService) { }
   
   ngOnInit(): void { 
-      // GET
-      this.firebase.retrieveMarble(
-      ).subscribe((data: any) => {
-        console.log(data)
-        this.prodotti = Object.keys(data).map(key => {
-        data[key]['id'] = key
-        return data[key] 
-      })
-      console.log("PRODOTTI:"+this.prodotti)
-      console.log("IDS:"+this.ids)
-      })
+    this.preorder = false;
+    this.marbleform = {
+      id: '',
+      nome: '',
+      provenienza: '',
+      colore: '',
+      venature: false,
+      colore_v: '',
+      dim_x: 0,
+      dim_y: 0,
+      dim_z: 0,
+      qta: 0,
+      prezzo: 0,
+      descrizione: ''
+    }
+    // GET
+    this.firebase.retrieveMarble(
+    ).subscribe((data: any) => {
+      console.log(data)
+      this.prodotti = Object.keys(data).map(key => {
+      data[key]['id'] = key
+      return data[key] 
+    })
+    console.log("PRODOTTI:"+this.prodotti)
+    })
   }
   
   onSubmit() {
@@ -67,6 +68,11 @@ export class ShopComponent implements OnInit {
     ).subscribe((data : any) => {
       console.log(data)
     })
+  }
+
+  purchaseMarble(details: ForumDataDB) {
+    this.marbleform = details;
+    this.preorder = true;
   }
   
   filterProducts() {

@@ -50,6 +50,7 @@ import { RegisterComponent } from './componenti/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { DialogRef } from '@angular/cdk/dialog';
+import { ListOrdersComponent } from './componenti/list-orders/list-orders.component';
 
 
 
@@ -69,6 +70,7 @@ import { DialogRef } from '@angular/cdk/dialog';
         LoginComponent,
         RegisterComponent,
         ShopNowComponent,
+        ListOrdersComponent,
     ],
     providers: [
         {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {
