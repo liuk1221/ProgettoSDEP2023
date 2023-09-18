@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FirebaseService } from 'src/app/servizi/firebase.service';
 import { ForumDataDB } from 'src/app/servizi/forum-data-db';
 import { ShopNowComponent } from '../shop-now/shop-now.component';
+import { AuthService } from 'src/app/servizi/auth.service';
 
 @Component({
   selector: 'app-shop',
@@ -12,39 +13,37 @@ import { ShopNowComponent } from '../shop-now/shop-now.component';
 export class ShopComponent implements OnInit {
   public rows : number = 4;
   public prodotti : ForumDataDB[];
-  public marbleform: ForumDataDB;
+  public marbleform: ForumDataDB = {
+    id: '',
+    nome: '',
+    provenienza: '',
+    colore: '',
+    venature: false,
+    colore_v: '',
+    dim_x: 0,
+    dim_y: 0,
+    dim_z: 0,
+    qta: 0,
+    prezzo: 0,
+    descrizione: ''
+  };
   public pick : number[] = [0,0,0,0];
   private id_to_act : string = '';
   public preorder : boolean;
 
   constructor(
-    private firebase: FirebaseService) { }
+    private firebase: FirebaseService,
+    public user: AuthService) { }
   
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.preorder = false;
-    this.marbleform = {
-      id: '',
-      nome: '',
-      provenienza: '',
-      colore: '',
-      venature: false,
-      colore_v: '',
-      dim_x: 0,
-      dim_y: 0,
-      dim_z: 0,
-      qta: 0,
-      prezzo: 0,
-      descrizione: ''
-    }
     // GET
     this.firebase.retrieveMarble(
     ).subscribe((data: any) => {
-      console.log(data)
       this.prodotti = Object.keys(data).map(key => {
       data[key]['id'] = key
       return data[key] 
-    })
-    console.log("PRODOTTI:"+this.prodotti)
+      })
     })
   }
   
@@ -66,13 +65,21 @@ export class ShopComponent implements OnInit {
     this.firebase.deleteMarble(
       this.id_to_act
     ).subscribe((data : any) => {
-      console.log(data)
     })
   }
 
   purchaseMarble(details: ForumDataDB) {
     this.marbleform = details;
+    // console.log(this.marbleform)
     this.preorder = true;
+  }
+
+  preorderOption() {
+    return this.preorder
+  }
+
+  displayPurchaseDetailes() {
+    return this.marbleform
   }
   
   filterProducts() {
@@ -83,7 +90,6 @@ export class ShopComponent implements OnInit {
   quick_pop(){
     this.firebase.dummyIMarble(
     ).subscribe(data => {
-      console.log(data)
     })
   }
 }

@@ -1,16 +1,27 @@
 <div
     list-orders>
-    <ng-container 
-        list>
-        <body
-            order
-            *ngFor="let order of print_list(user.userEmail)">
-                <h1>{{order.email}}</h1>
-                <span>{{order.marmo.nome}} {{order.marmo.provenienza}}<br>
-                      {{order.marmo.dim_x}} {{order.marmo.dim_y}} {{order.marmo.dim_z}}<br>
-                      {{order.marmo.colore}} </span>
-                <span *ngIf="order.marmo.venature">{{order.marmo.colore_v}}</span><br>
-                <span>{{order.marmo.qta}}</span>
-        </body>
-    </ng-container>
+    <main>
+        <h1
+        *ngIf="this.user.userEmail==null">
+        <strong>
+            Per favore, eseguire il login per procedere con gli acquisti
+        </strong>
+        </h1>
+        <div
+        *ngIf="this.user.userEmail != null">
+        <ng-container 
+            list>
+            <body
+                order
+                *ngFor="let order of print_list(user.userEmail)">
+                    <h1>{{order.email}}</h1>
+                    <span>{{order.marmo.nome}} {{order.marmo.provenienza}}<br>
+                          {{order.marmo.dim_x}} {{order.marmo.dim_y}} {{order.marmo.dim_z}}<br>
+                          {{order.marmo.colore}} </span>
+                    <span *ngIf="order.marmo.venature">{{order.marmo.colore_v}}</span><br>
+                    <span>{{order.marmo.qta}}</span>
+            </body>
+        </ng-container>
+        </div>
+    </main>
 </div>

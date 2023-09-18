@@ -12,7 +12,7 @@
           <header>
             <h1>
               <strong>
-                Prego appore i dati del proprio acquisto
+                Prego mettere i dati del proprio acquisto
               </strong>
             </h1>
             <p>
@@ -21,26 +21,33 @@
             </p>
           </header>
           <div
+            preorder-box
+            *ngIf="this.loadPreorderCond()">
+            <mat-card
+              preorder-card>
+                <mat-label
+                  preorder-label>
+                  ID
+                </mat-label>
+                <mat-card-content
+                  preorder-content>
+                    {{this.ordine.marmo.id}}
+                </mat-card-content>
+            </mat-card>
+          </div>
+          <div
             ordine-input>
             <mat-form-field
+              *ngIf="!(this.loadPreorderCond())"
               [hideRequiredMarker]="true"
               id-box>
               <mat-label
               id-label>
               ID
               </mat-label>
-              <!-- <input
-              matInput 
-              placeholder=""
-              maxlength="19"
-              #idinput
-              required
-              (keyup.enter)="submit('-'+idinput.value)">
-              {{this.one_slab.id}} -->
-              <!-- <mat-hint align="end">{{idinput.value.length}}/19</mat-hint> -->
               <mat-select
                 id-select
-                placeholder="---"
+                placeholder=""
                 [disabled]="isId()">
                   <mat-option
                     value=""

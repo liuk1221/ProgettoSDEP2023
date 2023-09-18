@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject} from '@angular/core';
+import { Component, OnInit, Inject, Input} from '@angular/core';
 import { ForumDataDB, OrdineDB } from "../../servizi/forum-data-db";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterModule } from "@angular/router";
@@ -18,12 +18,34 @@ import { AuthService } from 'src/app/servizi/auth.service';
   styleUrls: ['./shop-now.component.scss'],
 })
 export class ShopNowComponent implements OnInit {
+  @Input() preordine_id: string;
+  // @Input() preordine_marmo: ForumDataDB;
+  // @Input() preordine_present: boolean;
   
   public one_slab : ForumDataDB;
   public ordine : OrdineDB;
   public show_preview : boolean;
   public id_present : boolean;
   public ordine_present : boolean;
+  public preordine : OrdineDB = {
+    id_ordine: '',
+    email: this.login.userEmail,
+    marmo: {
+      id: '',
+      nome: '',
+      provenienza: '',
+      descrizione: '',
+      colore: '',
+      venature: false,
+      colore_v: '',
+      dim_x: 0,
+      dim_y: 0,
+      dim_z: 0,
+      qta: 0,
+      prezzo: 0
+    }
+  };
+  public preordine_present : boolean;
   public id_ordine : string;
 
   constructor (
@@ -32,47 +54,36 @@ export class ShopNowComponent implements OnInit {
     public login: AuthService) { }
 
   ngOnInit() {
-    // this.negozio.ngOnInit()
-    if (this.negozio.preorder) {
-      this.ordine.email = this.login.userEmail;
-      this.ordine.marmo = this.negozio.marbleform;
-    } else {
-      this.one_slab = {
-        id: '',
-        nome: '',
-        provenienza: '',
-        descrizione: '',
-        colore: '',
-        venature: false,
-        colore_v: '',
-        dim_x: 0,
-        dim_y: 0,
-        dim_z: 0,
-        qta: 0,
-        prezzo: 0
-      };
-      this.ordine = {
-        id_ordine: '',
-        email: '',
-        marmo: {
-          id: '',
-          nome: '',
-          provenienza: '',
-          descrizione: '',
-          colore: '',
-          venature: false,
-          colore_v: '',
-          dim_x: 0,
-          dim_y: 0,
-          dim_z: 0,
-          qta: 0,
-          prezzo: 0
-        }
-      }
+    this.one_slab = {
+      id: '',
+      nome: '',
+      provenienza: '',
+      descrizione: '',
+      colore: '',
+      venature: false,
+      colore_v: '',
+      dim_x: 0,
+      dim_y: 0,
+      dim_z: 0,
+      qta: 0,
+      prezzo: 0
+    };
+    this.ordine = {
+      id_ordine: '',
+      email: this.login.userEmail,
+      marmo: this.one_slab
+    }
+    if (this.loadPreorderCond()){
+      this.one_slab = this.loadPreorder()
+      this.id_present = true
+      console.log(this.ordine)
+      this.preview()
+    }
+    else {
+      this.id_present = false;
+      this.ordine_present = false;
     }
     this.show_preview = false;
-    this.id_present = false;
-    this.ordine_present = false;
     this.id_ordine = '';
   }
 
@@ -91,7 +102,7 @@ export class ShopNowComponent implements OnInit {
       this.one_slab.id = id;
       this.id_present = true;
     }
-    console.log(this.one_slab)
+    // console.log(this.one_slab)
   }
 
   public submit(id: string){
@@ -109,7 +120,7 @@ export class ShopNowComponent implements OnInit {
       return
     }
     this.ordine.marmo.qta = value
-    console.log("Quantita: "+this.ordine.marmo.qta)
+    // console.log("Quantita: "+this.ordine.marmo.qta)
     if (this.id_present) {
       this.preview()
       return
@@ -117,7 +128,6 @@ export class ShopNowComponent implements OnInit {
   }
 
   private openPreview() {
-    console.log(this.ordine)
     this.show_preview = true;    
   }
   
@@ -142,11 +152,31 @@ export class ShopNowComponent implements OnInit {
   }
 
   public purchaseMarble(){
-    console.log(this.ordine)
     if (this.ordine_present) {
       this.magazzino.insertOrdine(
         this.ordine).subscribe((data : any) => {})
     }
+    alert("Ordine avvenuto con successo!")
+    this.ngOnInit()
+  }
+
+  saveNoPreorder() {
+    localStorage.setItem("preordine_cond", String(''))
+  }
+
+  savePreorder(body: ForumDataDB) {
+    localStorage.setItem("preordine", String(JSON.stringify(body)))
+    localStorage.setItem("preordine_cond", String(true))
+  }
+
+  loadPreorderCond() {
+    console.log(localStorage.getItem("preordine_cond"))
+    return Boolean(localStorage.getItem("preordine_cond"))
+  }
+
+  loadPreorder() {
+    // return localStorage.getItem("preordine")
+    return JSON.parse(localStorage.getItem("preordine"))
   }
 
   deleteOrder(){

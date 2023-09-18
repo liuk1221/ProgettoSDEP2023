@@ -182,7 +182,6 @@ export class FirebaseService implements OnInit{
   four_random_cards() {
     this.retrieveMarble(
       ).subscribe((data: any) => {
-        console.log(data)
         this.prodotti = Object.keys(data).map(key => { 
         this.ids.push(key)
         data[key]['id'] = key

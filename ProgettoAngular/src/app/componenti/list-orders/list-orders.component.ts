@@ -27,14 +27,14 @@ export class ListOrdersComponent implements OnInit{
           return data[key]
         })
       })
-      console.log("ORDINI: "+this.lista)
+      // console.log("ORDINI: "+this.lista)
   }
 
   print_list(usermail: string) : OrdineDB[] {
-    if (usermail == null) {
-      alert("Please log in")
-      return [];
-    } 
+    // if (usermail == null) {
+    //   alert("Please log in")
+    //   return [];
+    // } 
     if (this.user.isAdmin) {
       return this.lista
     } else {
