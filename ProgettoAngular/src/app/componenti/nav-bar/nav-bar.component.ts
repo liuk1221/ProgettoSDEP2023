@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { FirebaseOptions } from '@angular/fire/app';
 import { AuthService } from 'src/app/servizi/auth.service';
+import { FirebaseService } from 'src/app/servizi/firebase.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,9 +10,15 @@ import { AuthService } from 'src/app/servizi/auth.service';
 })
 export class NavBarComponent{
   
-  constructor(public auth : AuthService){}
+  constructor(public auth : AuthService, private firebase: FirebaseService){}
 
   onLogout(){
     this.auth.logout()
+  }
+
+  quick_pop(){
+    this.firebase.dummyIMarble(
+    ).subscribe(data => {
+    })
   }
 }

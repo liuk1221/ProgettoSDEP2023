@@ -37,7 +37,7 @@
             </div>
             <div  style="width: 25%; text-align: right;">
                 <button *ngIf="auth.isLoggedIn" mat-icon-button class="bottoniFont" routerLink="orders"><mat-icon>history</mat-icon></button>
-                <button *ngIf="auth.isAdmin" mat-icon-button class="bottoniFont"><mat-icon>admin_panel_settings</mat-icon></button>         
+                <button *ngIf="auth.isAdmin" mat-icon-button class="bottoniFont" (click)="quick_pop()"><mat-icon>admin_panel_settings</mat-icon></button>         
                 <!-- Va impostato il routerlink per la history e admin panel-->
                 <button mat-icon-button class="bottoniFont" routerLink="shopnow"><mat-icon>shopping_cart</mat-icon>
                 </button>
