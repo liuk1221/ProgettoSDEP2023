@@ -162,6 +162,7 @@ export class ShopNowComponent implements OnInit {
 
   saveNoPreorder() {
     localStorage.setItem("preordine_cond", String(''))
+    localStorage.setItem("preordine", String(''))
   }
 
   savePreorder(body: ForumDataDB) {
@@ -180,6 +181,7 @@ export class ShopNowComponent implements OnInit {
   }
 
   deleteOrder(){
+    this.saveNoPreorder()
     this.ngOnInit()
   }
 

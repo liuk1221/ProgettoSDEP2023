@@ -12,13 +12,13 @@
           <header>
             <h1>
               <strong>
-                Prego mettere i dati del proprio acquisto
+                Prego dirigersi all'area "Shop" per scegliere<br>il proprio prodotto
               </strong>
             </h1>
-            <p>
+            <!-- <p>
               Può copiare l'ID lotto dell'oggetto di sua<br>
               preferenza o sceglierlo dal menu a tendina
-            </p>
+            </p> -->
           </header>
           <div
             preorder-box
@@ -37,30 +37,9 @@
           </div>
           <div
             ordine-input>
-            <mat-form-field
-              *ngIf="!(this.loadPreorderCond())"
-              [hideRequiredMarker]="true"
-              id-box>
-              <mat-label
-              id-label>
-              ID
-              </mat-label>
-              <mat-select
-                id-select
-                placeholder=""
-                [disabled]="isId()">
-                  <mat-option
-                    value=""
-                    *ngFor="let marble of list_all_marble()"
-                    #ithslab
-                    (click)="submit(this.ithslab.viewValue)">
-                      {{marble.id}}
-                  </mat-option>
-              </mat-select>
-            </mat-form-field>
             <br><br><br>
             <mat-form-field
-              [hideRequiredMarker]="true"
+              [hideRequiredMarker]="false"
               qta-box
               hintLabel="Massima quantità acquistabile">
               <mat-label>Amount</mat-label>
@@ -70,7 +49,7 @@
                 class="example-right-align" 
                 placeholder="0"
                 #amountinput
-                [disabled]="isQta()"
+                [disabled]="isQta() && !(this.loadPreorderCond())"
                 (keyup.enter)="send_amount(amountinput.value)">
               <mat-hint align="end">{{this.one_slab.qta}}</mat-hint>
             </mat-form-field>
