@@ -3,11 +3,9 @@
     <div 
       class="example-container"
       *ngIf="this.login.userEmail">
-      <ng-container 
-        forms-and-previews
-        style="display: flex; flex-direction: row;">
-        <div
-          forms>
+      <ng-container forms-and-previews>
+        <div class="macrosezione">
+          <div class="forms">
           <!-- ID -->
           <header>
             <h1>
@@ -56,8 +54,7 @@
           </div>
         </div>
         <br><br><br>
-        <div
-          div-preview
+        <div class="div-preview"
           *ngIf="this.flagStatus()">
           <mat-card
             card-preview>
@@ -92,6 +89,7 @@
               </button>
             </div>
           </mat-card>
+          </div>
         </div>
       </ng-container>
   </div>
