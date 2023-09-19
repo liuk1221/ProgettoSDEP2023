@@ -6,6 +6,7 @@
 .purchase-options{
     padding-top: 200px;
     padding-left: 30px;
+    padding-right: 30px;
     padding-bottom: 50px;
     min-height: 100vh;
     align-items: left;
@@ -26,6 +27,19 @@
     height: 50%;
 }
 
-.preorder-card {
-  width: fit-content;
+.div-preview{
+  max-width: 50%;
+}
+.forms{
+  max-width: 50%;
+}
+
+.macrosezione {
+  display: flex;
+  justify-content: space-between; 
+}
+
+.forms, .div-preview {
+  flex: 1; 
+  margin: 0 10px; 
 }
