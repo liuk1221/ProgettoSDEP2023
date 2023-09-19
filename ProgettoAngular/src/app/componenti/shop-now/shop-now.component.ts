@@ -120,7 +120,7 @@ export class ShopNowComponent implements OnInit {
       return
     }
     this.ordine.marmo.qta = value
-    // console.log("Quantita: "+this.ordine.marmo.qta)
+    console.log("Quantita: "+this.ordine.marmo.qta)
     if (this.id_present) {
       this.preview()
       return
@@ -158,6 +158,11 @@ export class ShopNowComponent implements OnInit {
     }
     alert("Ordine avvenuto con successo!")
     this.ngOnInit()
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    })
   }
 
   saveNoPreorder() {

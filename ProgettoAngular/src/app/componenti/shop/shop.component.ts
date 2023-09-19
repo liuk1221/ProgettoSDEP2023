@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FirebaseService } from 'src/app/servizi/firebase.service';
-import { ForumDataDB } from 'src/app/servizi/forum-data-db';
+import { FilterDB, ForumDataDB } from 'src/app/servizi/forum-data-db';
 import { ShopNowComponent } from '../shop-now/shop-now.component';
 import { AuthService } from 'src/app/servizi/auth.service';
+import { MatRadioModule } from '@angular/material/radio';
 
 @Component({
   selector: 'app-shop',
@@ -30,6 +31,7 @@ export class ShopComponent implements OnInit {
   public pick : number[] = [0,0,0,0];
   private id_to_act : string = '';
   public preorder : boolean;
+  public filter : FilterDB = {};
 
   constructor(
     private firebase: FirebaseService,
@@ -82,9 +84,37 @@ export class ShopComponent implements OnInit {
     return this.marbleform
   }
   
-  filterProducts() {
+  filterProducts(product: ForumDataDB) {
     // Implement filtering logic here based on user input
     // Update this.filteredProducts with the filtered products
+    let res : boolean = true;
+    Object.keys(product).forEach(key => {
+      if (this.filter[key] != undefined){
+          if (key == 'nome'){
+            res = res && (product.nome == this.filter[key])
+          }
+          if (key == 'prezzo_max'){
+            res = res && (product.prezzo <= this.filter[key])
+          }
+          if (key == 'prezzo_min'){
+            res = res && (product.prezzo >= this.filter[key])
+          }
+          if (key == 'provenienza'){
+            res = res && (product.provenienza == this.filter[key])
+          }
+          if (key == 'colore'){
+            res = res && (product.colore == this.filter[key])
+          }
+          if (key == 'venature'){
+            res = res && (product.venature == this.filter[key])
+          }
+          if (key == 'colore_v'){
+            res = res && (product.colore_v == this.filter[key])
+          }
+        }
+      })
+      console.log(res)
+    return res
   }
 
   quick_pop(){
@@ -92,4 +122,19 @@ export class ShopComponent implements OnInit {
     ).subscribe(data => {
     })
   }
+
+  numberify(value: string) {
+    let res;
+    try {
+      res = eval(value)
+    } catch (error) {
+      return undefined
+    }
+    return res
+  }
+
+  boolify(value: string) {
+    return Boolean(value)
+  }
+  
 }

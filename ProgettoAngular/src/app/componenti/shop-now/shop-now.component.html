@@ -49,7 +49,7 @@
                 class="example-right-align" 
                 placeholder="0"
                 #amountinput
-                [disabled]="isQta() && !(this.loadPreorderCond())"
+                [disabled]="isQta()"
                 (keyup.enter)="send_amount(amountinput.value)">
               <mat-hint align="end">{{this.one_slab.qta}}</mat-hint>
             </mat-form-field>

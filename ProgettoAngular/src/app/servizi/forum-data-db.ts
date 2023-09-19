@@ -18,3 +18,13 @@ export interface OrdineDB {
     email: string,
     marmo: ForumDataDB
 }
+
+export interface FilterDB {
+    nome? : string,
+    prezzo_max? : number,
+    prezzo_min? : number,
+    prov? : string,
+    colore? : string,
+    venature? : boolean,
+    colore_v? : string
+}
